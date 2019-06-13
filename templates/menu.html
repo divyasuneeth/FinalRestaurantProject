@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <h1>Menu Items</h1>
+    <div>
+      {% for item in items %}
+      <a href="{{ url_for('showRestaurantMenu',restaurant_id=restaurant.id)}}"> {{item.name}}</a>
+     </br>
+       {% endfor %}
+    </div>
+
+  </body>
+</html>

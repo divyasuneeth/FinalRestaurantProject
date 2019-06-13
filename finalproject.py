@@ -11,7 +11,8 @@ restaurants = [{'name': 'The CRUDdy Crab', 'id': '1'}, {'name':'Blue Burgers', '
 items = [ {'name':'Cheese Pizza', 'description':'made with fresh cheese', 'price':'$5.99','course' :'Entree', 'id':'1'},
 {'name':'Chocolate Cake','description':'made with Dutch Chocolate', 'price':'$3.99', 'course':'Dessert','id':'2'},
 {'name':'Caesar Salad', 'description':'with fresh organic vegetables','price':'$5.99', 'course':'Entree','id':'3'},
-{'name':'Iced Tea', 'description':'with lemon','price':'$.99', 'course':'Beverage','id':'4'},{'name':'Spinach Dip', 'description':'creamy dip with fresh spinach','price':'$1.99', 'course':'Appetizer','id':'5'} ]
+{'name':'Iced Tea', 'description':'with lemon','price':'$.99', 'course':'Beverage','id':'4'},
+{'name':'Spinach Dip', 'description':'creamy dip with fresh spinach','price':'$1.99', 'course':'Appetizer','id':'5'} ]
 
 item =  {'name':'Cheese Pizza','description':'made with fresh cheese','price':'$5.99','course' :'Entree'}
 
@@ -23,31 +24,31 @@ def showRestaurants():
 
 @app.route('/restaurants/new')
 def newRestaurant():
-    return "This page will let you create a new restaurant"
+    return render_template('newrestaurant.html',restaurants=restaurants)#"This page will let you create a new restaurant"
 
 @app.route('/restaurants/<int:restaurant_id>/edit')
 def editRestaurant(restaurant_id):
-    return "This page will let you Edit a restaurant"
+    return render_template('editrestaurant.html',restaurant_id=restaurant_id)#"This page will let you Edit a restaurant"
 
 @app.route('/restaurants/<int:restaurant_id>/delete')
 def deleteRestaurant(restaurant_id):
-    return "This page will let you delete a restaurant"
+    return render_template('deleterestaurant.html',restaurant_id=restaurant_id)#"This page will let you delete a restaurant"
 
 @app.route('/restaurants/<int:restaurant_id>/menu')
 def showRestaurantMenu(restaurant_id):
-    return "This page will show the restaurant menu"
+    return render_template('menu.html',restaurant_id=restaurant_id)#"This page will show the restaurant menu"
 
 @app.route('/restaurants/<int:restaurant_id>/menu/new')
 def newRestaurantMenu(restaurant_id):
-    return "This page will let you create a new restaurant menu"
+    return render_template('newmenuitem.html',restaurants=restaurants) #"This page will let you create a new restaurant menu"
 
-@app.route('/restaurants/<int:restaurant_id>/menu/<int:menu_id>/edit')
-def editRestaurantMenu(restaurant_id,menu_id):
-    return "This page will let you edit the restaurant menu"
+@app.route('/restaurants/<int:restaurant_id>/menu/<int:item_id>/edit')
+def editRestaurantMenu(restaurant_id,item_id):
+    return render_template('editmenuitem.html',restaurant_id=restaurant_id,item_id=item_id)#"This page will let you edit the restaurant menu"
 
-@app.route('/restaurants/<int:restaurant_id>/menu/<int:menu_id>/delete')
-def deleteRestaurantMenu(restaurant_id,menu_id):
-    return "This page will let you delete the restaurant menu"
+@app.route('/restaurants/<int:restaurant_id>/menu/<int:item_id>/delete')
+def deleteRestaurantMenu(restaurant_id,item_id):
+    return render_template('deletemenuitem.html',restaurant_id=restaurant_id,item_id=item_id)#"This page will let you delete the restaurant menu"
 
 
 
