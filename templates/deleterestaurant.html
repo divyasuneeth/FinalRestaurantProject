@@ -3,9 +3,9 @@
     <h1>Delete Restaurants </h1>
     <form action="#" method='post'>
       <div>
-        <h2>Are you sure you want to delete the Restaurant</h2>
+        <h2>Are you sure you want to delete the restaurant {{item.name}}</h2>
         <input type="submit"  value="Delete">
-        <a href="#">Cancel</a>
+        <a href="{{url_for('showRestaurants')}}">Cancel</a>
       </div>
     </form>
 
