@@ -1,11 +1,14 @@
 <html>
+<head>
+  <link rel="stylesheet" type="text/css" href='{{url_for('static',filename='styles.css')}}'></link>
+</head>
   <body>
     <h1>List of Restaurants </h1>
 
       <a href="{{url_for('newRestaurant')}}">Create New Restaurant</a></br></br>
       {% for restaurant in restaurants %}
-      
-    <h3>  <a href="{{ url_for('showRestaurantMenu',restaurant_id=restaurant.id)}}"> {{restaurant.name}}</a></h3>
+
+    <p class="resName"><a href="{{ url_for('showRestaurantMenu',restaurant_id=restaurant.id)}}"> {{restaurant.name}}</a></p>
 
     <a href="{{url_for('editRestaurant',restaurant_id=restaurant.id)}}">Edit</a>
     <a href="{{url_for('deleteRestaurant',restaurant_id=restaurant.id)}}">Delete</a>
