@@ -3,22 +3,24 @@
   <link rel="stylesheet" type="text/css" href='{{url_for('static',filename='styles.css')}}'></link>
 </head>
   <body>
+    <div class='pane'>
     <h1>Menu Items</h1>
     <a href = '{{url_for('newRestaurantMenu', restaurant_id = restaurant_id) }}'>
-Create New Item</a></br></br>
+Create New Item &nbsp;|| &nbsp;</a>
 <a href = '{{url_for('showRestaurants')}}'>Back to Restaurants</a>
 </br></br>
     <div>
       {% for item in items %}
-        <div>{{item.course}}</div>
-        <div>{{item.name}}</div>
-        <div>{{item.description}}</div>
-        <div>{{item.price}}</div>
-        <a href="{{url_for('editMenuItem',restaurant_id = restaurant_id, menu_id = item.id)}}">Edit</a></br>
+        <div class="course">{{item.course}}</div>
+      </br>
+        <div class="name">{{item.name}}</div>
+        <div class="description">{{item.description}}</div>
+        <div class='price'>{{item.price}}</div>
+        <a href="{{url_for('editMenuItem',restaurant_id = restaurant_id, menu_id = item.id)}}">Edit &nbsp;|</a>
         <a href="{{url_for('deleteMenuItem',restaurant_id = restaurant_id, menu_id = item.id)}}">Delete</a>
      </br></br>
        {% endfor %}
     </div>
-
+</div>
   </body>
 </html>
